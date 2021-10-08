@@ -25,9 +25,10 @@ JOIN artist ON album.artist_id = artist.artist_id;
 
 -- Question 5
 -- Get all playlist_track track_ids where the playlist name is Music.
-SELECT album.title, artist.name
-FROM album
-JOIN artist ON album.artist_id = artist.artist_id;
+SELECT playlist_track.track_id
+FROM playlist_track
+JOIN playlist ON playlist_track.playlist_id = playlist.playlist_id
+WHERE playlist.name = 'Music';
 
 -- Question 6
 -- Get all track name`s for `playlist_id.
@@ -42,6 +43,7 @@ SELECT track.name, playlist.name
 FROM track
 JOIN playlist_track ON track.track_id = playlist_track.track_id
 JOIN playlist ON playlist_track.playlist_id = playlist.playlist_id;
+
 
 -- Question 8
 -- Get all track name`s and album `title`s that are the genre `Alternative & Punk ( 2 joins ).
